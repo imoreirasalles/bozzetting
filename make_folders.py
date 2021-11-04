@@ -1,4 +1,6 @@
-import os, csv, glob
+import os
+import csv
+import glob
 from PIL import Image, ImageDraw, ImageFont
 
 
@@ -59,7 +61,7 @@ def draw_folders(path, **data):
     """
 
     print(
-        f"[desenhando]  {data['record_name']}  {data['folder_number']}  {data['title'][:40]}..."
+        f"[desenhando]  {data['Record name']}  {data['Pasta']}  {data['Título'][:40]}..."
     )
 
     im = Image.new("RGB", (842, 1191), "white")
@@ -71,17 +73,18 @@ def draw_folders(path, **data):
 
     draw.text((60, 80), str(data["collection"]), fill="gray", font=arialSmall)
 
-    draw.text((60, 120), str(data["record_name"]), fill="black", font=arialLarge)
+    draw.text((60, 120), str(data["Record name"]),
+              fill="black", font=arialLarge)
 
     draw.text(
-        (700, 120), str(data["folder_number"]), fill="black", font=arialLarge,
+        (700, 120), str(data["Pasta"]), fill="black", font=arialLarge,
     )
 
-    draw.text((60, 180), str(data["title"]), fill="black", font=arialSmall)
+    draw.text((60, 180), str(data["Título"]), fill="black", font=arialSmall)
 
     draw.text(
         (60, 230),
-        str("Número de fotografias: " + data["images_number"]),
+        str("Número de fotografias: " + data["Quantidade de imagens"]),
         fill="black",
         font=arialSmall,
     )
@@ -89,9 +92,9 @@ def draw_folders(path, **data):
     im.save(
         path
         + "/"
-        + str(data["record_name"])
+        + str(data["Record name"])
         + " ("
-        + str(data["folder_number"])
+        + str(data["Pasta"])
         + ").pdf",
         "PDF",
         quality=100,

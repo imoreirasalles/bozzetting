@@ -8,6 +8,8 @@ verify_ssl = true
 [packages]
 pillow = "*"
 openpyxl = "*"
+pandas = "*"
+xlrd = "*"
 
 [requires]
 python_version = "3.8"
